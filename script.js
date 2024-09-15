@@ -1,6 +1,6 @@
 document.getElementById("menuButton").addEventListener("click", showHideMenu);
 
-document.body.addEventListener("click", hideMenu);
+document.addEventListener("click", hideMenu);
 function hideMenu() {
   const menuPopup = document.getElementById("menuPopup");
   if (menuPopup.classList.contains("show")) {

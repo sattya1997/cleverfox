@@ -1,29 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu Popup</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./searchBox.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Menu Popup</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-
-<body>
-  <nav class="navbar">
-    <div class="logo">
-      <object type="image/svg+xml" data="./logo.svg"></object>
-      <p>CLEVERFOX</p>
+  <body>
+    <nav class="navbar">
+      <div class="logo">
+        <object type="image/svg+xml" data="./logo.svg"></object>
+        <p>CLEVERFOX</p>
+      </div>
+      <div style="color: white" id="nav-object"></div>
+      <button id="menuButton"><span class="icon">☰</span> Menu</button>
+      <div id="menuPopup" class="hidden">
+        <button class="menu-item"><span class="icon">🏠</span> Home</button>
+        <button class="menu-item"><span class="icon">🔍</span> Search</button>
+        <button class="menu-item"><span class="icon">⚙️</span> Settings</button>
+        <button class="menu-item"><span class="icon">❓</span> Help</button>
+      </div>
+    </nav>
+    <div id="main-container">
+      <div id="search-box">
+        <div id="search-box-label"><p>Search Your Destination</p></div>
+        <div id="search-box-tabs">
+          <ul>
+            <li class="active">Destinations</li>
+            <li>Flights</li>
+            <li>Cars</li>
+            <li>Package</li>
+          </ul>
+        </div>
+        <hr class="red-color"/>
+        <div id="search-items">
+          <div id="where-to">
+            <button id="where-to-button">Where to</button>
+            <label for="where-to-input">India</label>
+            <div id="where-to-box" class="floating-box">
+              <input
+                type="text"
+                id="where-to-input"
+                placeholder="Search location"
+              />
+              <button id="where-to-search">Search</button>
+            </div>
+          </div>
+          <div id="dates">
+            <input id="dates-button" type="month" />
+            <label for="dates-button">Some default dates</label>
+          </div>
+          <div id="travellers">
+            <input
+              id="travellers-number-button"
+              type="number"
+              min="1"
+              max="10"
+            />
+            <label for="travellers-number-button">Travellers</label>
+            <div id="travellers-box" class="floating-box">
+              <input
+                type="number"
+                id="travellers-input"
+                min="1"
+                max="10"
+                placeholder="Number of travellers"
+              />
+              <input
+                type="number"
+                id="bedrooms-input"
+                min="1"
+                max="5"
+                placeholder="Number of bedrooms"
+              />
+              <button id="travellers-search">Set</button>
+            </div>
+          </div>
+          <div>
+            <button id="search-button">Search</button>
+          </div>
+        </div>
+      </div>
     </div>
-    <div style="color: white;" id="nav-object"></div>
-    <button id="menuButton"><span class="icon">☰</span> Menu</button>
-    <div id="menuPopup" class="hidden">
-      <button class="menu-item"><span class="icon">🏠</span> Home</button>
-      <button class="menu-item"><span class="icon">🔍</span> Search</button>
-      <button class="menu-item"><span class="icon">⚙️</span> Settings</button>
-      <button class="menu-item"><span class="icon">❓</span> Help</button>
-    </div>
-  </nav>
-  <script src="script.js"></script>
-</body>
-
+    <div id="search-results-overlay"><div id="search-results"></div></div>
+    <script src="./script.js"></script>
+    <script src="./searchBox.js"></script>
+  </body>
 </html>
